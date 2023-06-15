@@ -16,12 +16,6 @@ export default function Header() {
 				<Link className='text-md pl-8' to='/about'>
 					About
 				</Link>
-				<Link className='text-md pl-8' to='/popular'>
-					Popular News
-				</Link>
-				<Link className='text-md pl-8' to='/blog'>
-					Blog
-				</Link>
 				<Link className='text-md pl-8' to='/contact'>
 					Contact
 				</Link>

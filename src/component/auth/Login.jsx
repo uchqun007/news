@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Input from './input';
 
 export default function Login() {
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
 	return (
 		<div>
 			<section className='h-screen'>
@@ -19,28 +22,13 @@ export default function Login() {
 						<div className='md:w-8/12 lg:ml-6 lg:w-5/12'>
 							<form>
 								{/* <!-- Email input --> */}
-								<div className='relative mb-6' data-te-input-wrapper-init>
-									<input
-										type='text'
-										className='w-full px-2 py-3 outline-gray-600 border '
-										id='exampleFormControlInput3'
-										placeholder='Email address'
-									/>
-								</div>
-
+								<Input placeholder={'Email'} type={'email'} state={email} setState={setEmail} />
 								{/* <!-- Password input --> */}
-								<div className='relative mb-6' data-te-input-wrapper-init>
-									<input
-										type='password'
-										className='w-full px-2 py-3 outline-gray-600 border'
-										id='exampleFormControlInput33'
-										placeholder='Password'
-									/>
-								</div>
+								<Input placeholder={'Password'} type={'password'} state={password} setState={setPassword} />
 
 								{/* <!-- Submit button --> */}
 								<button type='submit' className='w-full px-7 py-3 outline-gray-600 bg-blue-600 text-white rounded-md'>
-									Sign in
+									Login
 								</button>
 							</form>
 						</div>
