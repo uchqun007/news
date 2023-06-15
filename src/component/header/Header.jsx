@@ -25,6 +25,12 @@ export default function Header() {
 				<Link className='text-md pl-8' to='/contact'>
 					Contact
 				</Link>
+				<Link className='text-md pl-8' to='/login'>
+					Login
+				</Link>
+				<Link className='text-md pl-8' to='/register'>
+					Register
+				</Link>
 				<FiSearch className='text-xl cursor-pointer ml-8' />
 			</div>
 		</header>
