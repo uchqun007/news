@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
 import Input from './input';
+import { useDispatch, useSelector } from 'react-redux';
+import { registerUserStart } from '../../slice/auth';
 
 export default function Register() {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	console.log(name);
+	const dispatch = useDispatch();
+	const { isLoading } = useSelector(state => state.auth);
+
+	const registerHandler = e => {
+		e.preventDefault();
+		dispatch(registerUserStart());
+	};
 	return (
 		<div>
 			<section className='h-screen'>
@@ -30,9 +38,23 @@ export default function Register() {
 								{/* <!-- Password input --> */}
 								<Input placeholder={'Password'} type={'password'} state={password} setState={setPassword} />
 								{/* <!-- Submit button --> */}
-								<button type='submit' className='w-full px-7 py-3 outline-gray-600 bg-blue-600 text-white rounded-md'>
-									Register
-								</button>
+								{isLoading ? (
+									<button
+										onClick={registerHandler}
+										type='submit'
+										className='w-full px-7 py-3 outline-gray-600 bg-blue-400 text-white rounded-md'
+									>
+										Loading...
+									</button>
+								) : (
+									<button
+										onClick={registerHandler}
+										type='submit'
+										className='w-full px-7 py-3 outline-gray-600 bg-blue-600 text-white rounded-md'
+									>
+										Register
+									</button>
+								)}
 							</form>
 						</div>
 					</div>
